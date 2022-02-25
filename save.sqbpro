@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/victorien/Downloads/archive/database.sqlite" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="125"/><column_width id="3" width="35605"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="Player_Attributes"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Country" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Player" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Player_Attributes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Team" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Team_Attributes" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 3">-- Vue sur un joueur
+
+SELECT player_name,birthday,height,weight,preferred_foot,ball_control,vision,stamina,
+short_passing,positioning,date,overall_rating
+FROM Player_Attributes PA INNER JOIN Player P
+ON PA.player_api_id = P.player_api_id
+WHERE player_name='Marko Vejinovic'</sql><sql name="SQL 2">-- Requete finale
+
+SELECT player_name,birthday,height,weight,preferred_foot,ball_control,vision,stamina,
+short_passing,positioning,date,MAX(overall_rating) note_plus_haute,gk_diving
+FROM Player_Attributes PA INNER JOIN Player P
+ON PA.player_api_id = P.player_api_id
+WHERE gk_diving &lt; 50
+GROUP BY player_name</sql><current_tab id="1"/></tab_sql></sqlb_project>
